@@ -10,7 +10,7 @@
                 <div v-if="~parameters.indexOf('price')" class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="">First and last name</span>
+                            <span class="input-group-text">Price range</span>
                         </div>
                         <input type="number" v-model="query.price.from" min="0" class="form-control">
                         <input type="number" v-model="query.price.to" class="form-control">
