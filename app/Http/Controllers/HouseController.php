@@ -25,14 +25,13 @@ class HouseController extends Controller
         ]]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function search(Request $request)
     {
-        //
+        $houses = House::where('name', 'iLike', '%' . $request->q . '%')->get();
+
+        return HouseResource::collection($houses)->additional(['meta' => [
+            'version' => '1.0.0',
+            'base_url' => url('/')
+        ]]);
     }
 }
