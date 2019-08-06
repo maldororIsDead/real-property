@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('houses', 'HouseController@index');
 
-Route::get('search', 'HouseController@search');
+Route::post('search', 'HouseController@search');
