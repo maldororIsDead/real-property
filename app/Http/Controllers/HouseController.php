@@ -13,6 +13,20 @@ use App\Http\Resources\House as HouseResource;
 class HouseController extends Controller
 {
     /**
+     * @var House
+     */
+    private $house;
+
+    /**
+     * HouseController constructor.
+     * @param House $house
+     */
+    public function __construct(House $house)
+    {
+        $this->house = $house;
+    }
+
+    /**
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
@@ -25,9 +39,13 @@ class HouseController extends Controller
         ]]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
     public function search(Request $request)
     {
-        $houses = House::where('name', 'iLike', '%' . $request->q . '%')->get();
+        $houses = $this->house->fetchFoundData($request->all());
 
         return HouseResource::collection($houses)->additional(['meta' => [
             'version' => '1.0.0',

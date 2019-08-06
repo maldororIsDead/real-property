@@ -29,7 +29,7 @@
                            aria-label="Search">
                 </div>
                 <div v-if="~parameters.indexOf('garages')" class="form-group">
-                    <input class="form-control mr-sm-2" type="number" v-model="query.garages" placeholder="Storeys"
+                    <input class="form-control mr-sm-2" type="number" v-model="query.garages" placeholder="Garages"
                            aria-label="Search">
                 </div>
                 <button v-if="parameters.length" @click="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
