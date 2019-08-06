@@ -11,6 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 class House extends Model
 {
     /**
+     * @const integer
+     */
+    const PER_PAGE = 5;
+
+    /**
      * @var string
      */
     protected $table = 'houses';
